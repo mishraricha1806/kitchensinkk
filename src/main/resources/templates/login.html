@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kitchen Sink</title>
+        <link rel="stylesheet" href="/css/login.css" />
+        <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .input-error {
+            border-color: red;
+        }
+    </style>
+    <script>
+        function validateUsername() {
+            const username = document.getElementById("username");
+            const usernameError = document.getElementById("usernameError");
+            if (username.value.trim() === "") {
+                usernameError.textContent = "Username is required.";
+                username.classList.add("input-error");
+            } else if (username.value.length < 3) {
+                usernameError.textContent = "Username must be at least 3 characters.";
+                username.classList.add("input-error");
+            } else {
+                usernameError.textContent = "";
+                username.classList.remove("input-error");
+            }
+        }
+
+        function validatePassword() {
+            const password = document.getElementById("password");
+            const passwordError = document.getElementById("passwordError");
+            if (password.value.trim() === "") {
+                passwordError.textContent = "Password is required.";
+                password.classList.add("input-error");
+            } else if (password.value.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters.";
+                password.classList.add("input-error");
+            } else {
+                passwordError.textContent = "";
+                password.classList.remove("input-error");
+            }
+        }
+
+        function setupEventListeners() {
+            const username = document.getElementById("username");
+            const password = document.getElementById("password");
+
+            username.addEventListener("input", validateUsername);
+            password.addEventListener("input", validatePassword);
+        }
+
+        document.addEventListener("DOMContentLoaded", setupEventListeners);
+    </script>
+   
+</head>
+<body>
+    <form th:action="@{/members/login}" method="post"  >
+        <p>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required minlength="3" />
+                        <span id="usernameError" class="error"></span>
+            
+            
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required minlength="6"/>
+                         
+            <span id="passwordError" class="error"></span>
+
+            
+        </p>
+        <p>
+            <button type="submit">Login</button>
+        </p>
+        <div th:if="${param.error}"  class="error" >
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kitchensink-app
+  labels:
+    app: kitchensink-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kitchensink-app
+  template:
+    metadata:
+      labels:
+        app: kitchensink-app
+    spec:
+      containers:
+        - name: kitchensink-app
+          image: your-docker-repo/kitchensink-app:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "default"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"

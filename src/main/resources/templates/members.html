@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"     
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <title>Member Registration</title>
+    <link rel="stylesheet" href="/css/screen.css" />
+    
+</head>
+<body>
+    <h1>Welcome to Spring Boot!</h1>
+
+    <div>
+        <p>You have successfully deployed a Spring Boot application.</p>
+    </div>
+
+    <h2 sec:authorize="hasRole('ROLE_READ_WRITE')" >Member Registration</h2>
+    <form th:action="@{/members}" th:object="${newMember}" method="post" sec:authorize="hasRole('ROLE_READ_WRITE')">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" />
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid"></span>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="text" id="email" th:field="*{email}" />
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid"></span>
+        </p>
+        <p>
+            <label for="phoneNumber">Phone #:</label>
+            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" />
+            <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="invalid"></span>
+        </p>
+        <p>
+            <button type="submit" >Register</button>
+        </p>
+    </form>
+
+    <h2>Members</h2>
+    <div th:if="${#lists.isEmpty(members)}">
+        <em>No registered members.</em>
+    </div>
+    <table th:if="${!#lists.isEmpty(members)}">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone #</th>
+                <th>REST URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.email}"></td>
+                <td th:text="${member.phoneNumber}"></td>
+                <td><a th:href="@{|/members/api/${member.email}|}" th:text="@{|/members/api/${member.email}|}"></a></td>
+                 <td sec:authorize="hasRole('ROLE_READ_WRITE')">
+                    <a th:href="@{/members/edit/{id}(id=${member.id})}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">REST URL for all members: <a th:href="@{/members/api}" th:text="@{/members/api}"></a></td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

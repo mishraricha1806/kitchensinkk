@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Member</title>
+    <link rel="stylesheet" href="/css/screen.css" />
+</head>
+<body>
+    <h2>Edit Member</h2>
+    <form th:action="@{/members/update/{id}(id=${member.id})}" th:object="${member}" method="post">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" />
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid"></span>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+            <input type="text" id="email" th:field="*{email}" />
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid"></span>
+        </p>
+        <p>
+            <label for="phoneNumber">Phone #:</label>
+            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" />
+            <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="invalid"></span>
+        </p>
+        <p>
+            <button type="submit">Update Member</button>
+        </p>
+    </form>
+</body>
+</html>
