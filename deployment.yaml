@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: kitchensink-app
-          image: your-docker-repo/kitchensink-app:latest
+          image: ${docker-repo}/kitchensink-app:latest
           ports:
             - containerPort: 8080
           env:

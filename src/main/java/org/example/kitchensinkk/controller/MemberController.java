@@ -2,7 +2,6 @@ package org.example.kitchensinkk.controller;
 
 import java.util.List;
 
-import org.example.kitchensinkk.exception.BadRequestException;
 import org.example.kitchensinkk.exception.ResourceNotFoundException;
 import org.example.kitchensinkk.model.Member;
 import org.example.kitchensinkk.service.MemberService;
@@ -44,7 +43,7 @@ public class MemberController {
         return memberService.getAllMembers();
     }
 
-    // REST API Endpoint to get a member by email as JSON
+   // REST API Endpoint to get a member by email as JSON
     @GetMapping("/api/{email}")
     @ResponseBody
     @PreAuthorize("hasAnyRole('ROLE_READ_ONLY', 'ROLE_READ_WRITE')")  // Accessible to both READ_ONLY and READ_WRITE roles

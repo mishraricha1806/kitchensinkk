@@ -11,13 +11,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.thymeleaf.extras.springsecurity6.dialect.SpringSecurityDialect;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
+    @SuppressWarnings("deprecation")
+	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeRequests(authorizeRequests -> authorizeRequests
@@ -54,7 +54,6 @@ public class SecurityConfig {
                 .password(passwordEncoder().encode("password"))
                 .roles("READ_WRITE")
                 .build();
-System.out.println("user 2 is in making"+user2);
         return new InMemoryUserDetailsManager(user1, user2);
     }
 

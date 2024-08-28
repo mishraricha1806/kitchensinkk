@@ -173,6 +173,8 @@ input {
   font-weight: bold;
   background-color: #EAECEE;
   text-align: center;
+  border-top: 2px solid #ddd;
+  
 }
 
 .simpletablestyle tr.header td {

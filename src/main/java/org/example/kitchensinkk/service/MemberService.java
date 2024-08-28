@@ -39,9 +39,10 @@ public class MemberService {
 		}
 		return member;
 	}
+
 	
 	public Member findById(String id) {
 		return memberRepository.findById(id)
-		        .orElseThrow(() -> new ResourceNotFoundException("Member with id " + id + " not found"));
-    }
+				.orElseThrow(() -> new ResourceNotFoundException("Member with id " + id + " not found"));
+	}
 }
