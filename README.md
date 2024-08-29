@@ -11,6 +11,10 @@ Before you begin, ensure you have the following installed:
 - Kubernetes: For deploying the application to a Kubernetes cluster.
 - kubectl: Command-line tool for interacting with the Kubernetes cluster.
 
+## Tools
+- Eclipse or IntelliJ IDEA (or any preferred IDE) 
+- Maven (version >= 3.6.0)
+
 ### Building the Application
 Clone the repository:
 
