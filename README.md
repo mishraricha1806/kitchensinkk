@@ -18,7 +18,7 @@ Before you begin, ensure you have the following installed:
 ## Building the Application
 Clone the repository:
 ```bash
-git clone <repository-url>
+git clone git@github.com:mishraricha1806/kitchensinkk.git
 cd kitchensinkk
 ```
 ### Direct Local Deployment 
