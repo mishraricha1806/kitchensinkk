@@ -33,7 +33,7 @@ mvn clean package -DskipTests
 
 ```
 Once Run is successful.
-Run as application.
+```bash Run as application. ```
 The application will be available at http://localhost:8080.
 
 
