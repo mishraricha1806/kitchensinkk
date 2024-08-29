@@ -4,12 +4,14 @@ This repository contains the Kitchensink Java Spring Boot application. This guid
 ## Prerequisites
 Before you begin, ensure you have the following installed:
 
-Java 21: Ensure you have Java 21 installed to build the application.
-Maven: Used for building the application.
-Docker: To containerize the application.
-Kubernetes: For deploying the application to a Kubernetes cluster.
-kubectl: Command-line tool for interacting with the Kubernetes cluster.
-Building the Application
+- Java 21: Ensure you have Java 21 installed to build the application.
+- Maven: Used for building the application.
+- MongoDB ATLAS 
+- Docker: To containerize the application.
+- Kubernetes: For deploying the application to a Kubernetes cluster.
+- kubectl: Command-line tool for interacting with the Kubernetes cluster.
+
+### Building the Application
 Clone the repository:
 
 git clone <repository-url>
