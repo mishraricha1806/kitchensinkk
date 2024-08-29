@@ -17,7 +17,7 @@ Before you begin, ensure you have the following installed:
 
 ## Building the Application
 Clone the repository:
-
+```bash
 git clone <repository-url>
 cd kitchensinkk
 Build the application:
