@@ -20,12 +20,16 @@ Clone the repository:
 ```bash
 git clone <repository-url>
 cd kitchensinkk
+```
+
 Build the application:
 
 Run the following command to package the application using Maven:
 
-
+```bash
 mvn clean package -DskipTests
+
+```
 This command will generate a JAR file in the target directory.
 
 Docker Deployment
@@ -34,13 +38,15 @@ To run the application locally using Docker, follow these steps:
 Build the Docker Image:
 
 
-
+```bash
 docker build -t kitchensink-app:latest .
+```
 Run the Docker Container:
 
 
-
+```bash
 docker run -p 8080:8080 kitchensink-app:latest
+```
 The application will be available at http://localhost:8080.
 
 Using Docker Compose
@@ -49,8 +55,9 @@ If you prefer to use Docker Compose for local development:
 Run Docker Compose:
 
 
-
+```bash
 docker-compose up
+```
 This command will start the application, and it will be accessible at http://localhost:8080.
 
 Kubernetes Deployment
