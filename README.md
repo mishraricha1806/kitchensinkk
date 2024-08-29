@@ -87,12 +87,6 @@ Apply the Kubernetes deployment and service files:
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
-Access the Application:
-
-For LoadBalancer Service: Run kubectl get services to get the external IP address assigned to the service. Access the application at http://<external-ip>.
-
-For NodePort Service (if you use this type instead): Find the NodePort assigned by running kubectl get services and access the application at http://<node-ip>:<node-port>.
-
 
 Troubleshooting
 Check Logs: For Docker, you can view logs using docker logs <container-id>. For Kubernetes, use kubectl logs <pod-name>.
