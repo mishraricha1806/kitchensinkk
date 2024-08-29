@@ -21,6 +21,23 @@ Clone the repository:
 git clone <repository-url>
 cd kitchensinkk
 ```
+### Direct Local Deployment 
+
+-- Import application in Eclipse or Intellij Tool.
+
+** Build the Application
+
+
+```bash
+mvn clean package -DskipTests
+
+```
+Once Run is successful.
+Run as application.
+The application will be available at http://localhost:8080.
+
+
+## Docker Deployment 
 
 Build the application:
 
