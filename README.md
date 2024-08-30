@@ -1,5 +1,5 @@
 # Kitchensink Application spring-boot-mongodb-crud
-This repository contains the Kitchensink Java Spring Boot application. This guide provides instructions for deploying the application using Docker and Kubernetes.
+This repository contains the Kitchensink Java Spring Boot application. The project involves migrating a legacy Java EE  application, known as `kitchensink`, from JBoss Enterprise Application Platform (EAP) to a modern framework, specifically Spring Boot. This migration is aimed at modernizing the application stack, improving scalability, and enhancing developer productivity.This guide provides instructions for deploying the application using Docker and Kubernetes.
 
 ## Prerequisites
 Before you begin, ensure you have the following installed:
